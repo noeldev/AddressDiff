@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "AddressDiff": {
+      "commandName": "Project",
+      "commandLineArgs": "osm-ban 50493 \"%OneDrive%\\Documents\\Personnel\\Cartographie OSM\\Cartographie et BAN\\bal-50493.csv\" -s"
+    }
+  }
+}
