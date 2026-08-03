@@ -11,7 +11,7 @@
 		<Product>AddressDiff</Product>
 		<Authors>Noël Danjou</Authors>
 		<Company>Noël Danjou EI</Company>
-		<Description>Cross-check OpenStreetMap addresses against the French Base Adresse Nationale (BAN), and compare two local BAL address datasets for a commune.</Description>
+		<Description>Cross-check OpenStreetMap addresses against the French Base Adresse Nationale (BAN)</Description>
 		<Copyright>Copyright (C) 2026 Noël Danjou</Copyright>
 	</PropertyGroup>
 

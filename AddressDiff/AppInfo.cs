@@ -45,7 +45,8 @@ static class AppInfo
     public static void PrintBanner()
     {
         Console.WriteLine(
-            $"{Name} {Version} - {Description}\n" +
-            $"{Copyright} - {License}\n");
+            $"{Name} Version {Version}\n" +
+            $"{Description}\n" +
+            $"{ Copyright} - {License}\n");
     }
 }
