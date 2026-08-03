@@ -1,7 +1,7 @@
 # AddressDiff
 
-Tools for maintaining French BAN (Base Adresse Nationale) addresses in
-OpenStreetMap. Two comparisons are available:
+Tools for maintaining French BAN ([Base Adresse Nationale](https://adresse.data.gouv.fr/)) addresses in
+[OpenStreetMap](https://www.openstreetmap.org/). Two comparisons are available:
 
 - `osm-ban` - cross-check OSM against a BAN export for a commune and report the
   differences in both directions;
@@ -25,7 +25,7 @@ commune boundary, builds a normalized address key for both sides, and reports:
 
 ## How osm-ban works
 
-1. The commune boundary is resolved from its INSEE code via Overpass.
+1. The commune boundary is resolved from its [INSEE](https://www.insee.fr/) code via [Overpass](https://overpass-turbo.eu/).
 2. Every `addr:housenumber` object inside it is fetched with `out center`, so
    nodes keep their own position and ways or relations report a center.
 3. `associatedStreet` relations referencing those objects are fetched as well.
@@ -46,10 +46,9 @@ commune boundary, builds a normalized address key for both sides, and reports:
 
 ## Build and run
 
-The repository is a self-contained .NET console project (`AddressDiff.csproj`
-plus the sources under `src/`). Clone it and run one of the two commands
-(`osm-ban` is the default and its verb may be omitted; boolean options accept a
-single or double dash):
+The repository is a self-contained .NET console project. Clone it and run one
+of the two commands (`osm-ban` is the default and its verb may be omitted; 
+boolean options accept a single or double dash):
 
 ```
 dotnet run -- [osm-ban] <insee> <ban-csv> [output-dir] [-s|--spelling]
