@@ -32,7 +32,7 @@ static class CommandLineOptions
         var head = args.Length > 0 ? args[0].ToLowerInvariant() : "";
         var known = head is "osm-ban" or "ban-ban";
         var command = known ? head : "osm-ban";
-        var rest = known ? args.Skip(1).ToArray() : args;
+        var rest = known ? [.. args.Skip(1)] : args;
 
         var flags = rest.Where(IsFlag).Select(a => a.ToLowerInvariant()).ToHashSet();
         var positional = rest.Where(a => !IsFlag(a)).ToList();

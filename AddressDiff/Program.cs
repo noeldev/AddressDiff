@@ -93,7 +93,7 @@ static class Program
         Console.WriteLine($"BAN street names       : {coverage.BanStreetCount}");
         Console.WriteLine($"  with OSM addresses   : {coverage.CoveredCount} ({coveredPct.ToString("F1", CultureInfo.InvariantCulture)}%)");
         Console.WriteLine($"  missing from OSM     : {coverage.MissingInOsm.Count}");
-        Console.WriteLine($"Reports written to: {Path.GetFullPath(o.OutputDir)}");
+        PrintOutputFolder(o.OutputDir);
         return 0;
     }
 
@@ -131,7 +131,20 @@ static class Program
         Console.WriteLine($"Added              : {result.Added.Count}");
         Console.WriteLine($"Removed            : {result.Removed.Count}");
         Console.WriteLine($"Modified           : {result.Modified.Count}");
-        Console.WriteLine($"Reports written to: {Path.GetFullPath(o.OutputDir)}");
+        PrintOutputFolder(o.OutputDir);
         return 0;
+    }
+
+    // Show where the reports went: the plain path for reading, then the same
+    // folder as a file URI, which Windows Terminal turns into a link
+    // (Ctrl+click opens it in Explorer). The URI escapes spaces and non-ASCII
+    // characters, so the link is never cut short.
+    static void PrintOutputFolder(string outputDir)
+    {
+        var full = Path.TrimEndingDirectorySeparator(Path.GetFullPath(outputDir));
+        Console.WriteLine();
+        Console.WriteLine("Reports written to:");
+        Console.WriteLine($"  {full}");
+        Console.WriteLine($"  {new Uri(full + Path.DirectorySeparatorChar).AbsoluteUri}");
     }
 }

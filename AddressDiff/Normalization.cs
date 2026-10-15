@@ -34,7 +34,7 @@ static class Normalization
     // Leading integer of a house number, used only to sort reports naturally.
     public static int LeadingNumber(string number)
     {
-        var digits = new string(number.TakeWhile(char.IsDigit).ToArray());
+        var digits = new string([.. number.TakeWhile(char.IsDigit)]);
         return int.TryParse(digits, NumberStyles.Integer, CultureInfo.InvariantCulture, out var n) ? n : 0;
     }
 
